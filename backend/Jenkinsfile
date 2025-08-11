@@ -1,8 +1,5 @@
 pipeline{
     agent any
-    tools{
-        git
-    }
     stages{
         stage('git pull'){
             steps{
