@@ -4,7 +4,7 @@ pipeline{
         stage('git pull'){
             steps{
                 checkout scm
-                'echo "project pulled from git"'
+                echo "project pulled from git"
             }
         }
     }
