@@ -1,0 +1,14 @@
+pipeline{
+    agent any
+    tools{
+        git
+    }
+    stages{
+        stage('git pull'){
+            steps{
+                checkout scm
+                'echo "project pulled from git"'
+            }
+        }
+    }
+}
