@@ -1,5 +1,5 @@
 pipeline{
-    agent { label "instance-2"}
+    agent any
     stages{
         stage('git pull'){
             steps{
