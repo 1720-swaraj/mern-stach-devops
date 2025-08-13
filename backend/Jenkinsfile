@@ -14,7 +14,7 @@ pipeline {
                     def prevBuild = BUILD_NUMBER.toInteger() - 1
                     sh ''' 
                          if [ "$(docker ps -q)" ]; then
-                            docker rm -f $(docker ps -aq --filter "name=container_")
+                            docker rm -f $(docker ps -aq --filter 'name=container_${prevBuild}')
                          fi      
                     '''
                     
