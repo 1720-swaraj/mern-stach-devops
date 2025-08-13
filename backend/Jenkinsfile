@@ -13,12 +13,12 @@ pipeline {
 
                     def prevBuild = BUILD_NUMBER.toInteger() - 1
                     echo "$prevBuild"
-                    sh ''' 
+                    sh """
                          if [ "\$(docker ps -q --filter 'name=container_${prevBuild}')" ]; then
                             echo "inside"
                             docker rm -f \$(docker ps -aq --filter 'name=container_${prevBuild}')
                          fi      
-                    '''
+                    """
                     
                     def dockerImg = docker.build("swaraj9/backend:${BUILD_NUMBER}", './backend')
                     def dockerRun = dockerImg.run("-p 5000:80 --name container_${BUILD_NUMBER}")
