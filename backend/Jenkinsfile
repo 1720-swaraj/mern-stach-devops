@@ -15,6 +15,7 @@ pipeline {
                     echo "$prevBuild"
                     sh ''' 
                          if [ "\$(docker ps -q --filter 'name=container_${prevBuild}')" ]; then
+                            echo "inside"
                             docker rm -f \$(docker ps -aq --filter 'name=container_${prevBuild}')
                          fi      
                     '''
